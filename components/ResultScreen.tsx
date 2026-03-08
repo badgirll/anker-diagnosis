@@ -28,8 +28,31 @@ const resultImageMap: Record<CharacterType, { pc: string; sp: string }> = {
 export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
   const character = characterResults[result];
 
-  const handleDownloadImage = () => {
+  const handleDownloadImage = async () => {
     const imageUrl = resultImageMap[result].sp;
+
+    // Share APIが使える場合（主にスマホ）
+    if (navigator.share && navigator.canShare) {
+      try {
+        const response = await fetch(imageUrl);
+        const blob = await response.blob();
+        const file = new File([blob], "anker-shindan-result.jpg", { type: "image/jpeg" });
+
+        if (navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            files: [file],
+            title: "Ankerのタイプ診断結果",
+            text: `Ankerのタイプ診断の結果：${character.title.replace(/\n/g, " ")}`,
+          });
+          return;
+        }
+      } catch (error) {
+        // エラーの場合は通常のダウンロードにフォールバック
+        console.log("Share failed, falling back to download");
+      }
+    }
+
+    // Share APIが使えない場合（PC）または失敗した場合
     const link = document.createElement("a");
     link.href = imageUrl;
     link.download = imageUrl.split("/").pop() || "anker-shindan-result.jpg";
