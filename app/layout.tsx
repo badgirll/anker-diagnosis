@@ -9,8 +9,20 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: "Anker製品相性診断",
+  title: "Ankerのタイプ診断 | 電源の処方箋",
   description: "あなたにぴったりのAnker充電器とモバイルバッテリーを診断",
+  openGraph: {
+    title: "Ankerのタイプ診断 | 電源の処方箋",
+    description: "あなたにぴったりのAnker充電器とモバイルバッテリーを診断",
+    images: ["/ogp.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ankerのタイプ診断 | 電源の処方箋",
+    description: "あなたにぴったりのAnker充電器とモバイルバッテリーを診断",
+    images: ["/ogp.png"],
+  },
 };
 
 export default function RootLayout({
