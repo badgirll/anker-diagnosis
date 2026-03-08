@@ -6,8 +6,8 @@ interface StartScreenProps {
 
 export default function StartScreen({ onStart }: StartScreenProps) {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#f5f5f5]">
-      <div className="max-w-5xl w-full bg-white shadow-md overflow-hidden rounded-lg">
+    <div className="flex flex-col items-center justify-start md:justify-center min-h-screen bg-[#f5f5f5]">
+      <div className="max-w-5xl w-full bg-white shadow-md overflow-hidden md:rounded-lg">
         {/* キービジュアル */}
         <div className="relative w-full">
           <picture>
