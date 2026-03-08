@@ -45,7 +45,7 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 py-12 bg-[#f5f5f5]">
+    <div className="flex flex-col items-center justify-start md:justify-center min-h-screen p-4 py-12 bg-[#f5f5f5]">
       <div className="max-w-4xl w-full">
         <div className="bg-white p-8 md:p-12 shadow-md rounded-lg">
           <div className="text-center mb-8">
@@ -210,7 +210,7 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
               onClick={handleDownloadImage}
               className="anker-button font-bold py-3 px-8"
             >
-              画像をダウンロード
+              診断結果をダウンロード
             </button>
             <button
               onClick={handleTwitterShare}

@@ -14,7 +14,7 @@ export default function QuestionScreen({
   if (!question) return null;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-[#f5f5f5]">
+    <div className="flex flex-col items-center justify-start md:justify-center min-h-screen p-4 bg-[#f5f5f5]">
       <div className="max-w-3xl w-full">
         <div className="mb-8 text-center">
           <div className="flex justify-center gap-2 mb-4">
